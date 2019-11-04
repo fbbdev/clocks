@@ -55,11 +55,16 @@ let fromLastSec = 0;
 function setup() {
   secAngle = TWO_PI/60;
 
-  createCanvas(600, 600);
-  frameRate(60);
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.style('display', 'block');
+
   background(0);
 
   lastSec = second();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function secInterp(elapsed) {
