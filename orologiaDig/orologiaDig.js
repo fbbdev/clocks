@@ -39,15 +39,22 @@ function preload() {
 let lastSec = 0;
 let elapsed = 0;
 
-function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight)
-  canvas.style('display', 'block');
-  ctx = canvas.elt.getContext('2d');
-  background(0);
+function windowResized(ev) {
+  if (ev && ev.type === 'orientationchange')
+    setTimeout(windowResized, 200);
+
+  resizeCanvas(windowWidth, windowHeight);
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+function setup() {
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.style('display', 'block');
+
+  ctx = canvas.elt.getContext('2d');
+
+  background(0);
+
+  window.addEventListener('orientationchange', windowResized);
 }
 
 function figure(fig, t, interpolators) {
