@@ -1,0 +1,15 @@
+title          : fbbdev's clocks
+author         : fbbdev
+description    : >-
+  Custom made clock displays
+baseurl        : ""
+url            : "https://clocks.fbbdev.it"
+github_username: fbbdev
+
+# Build settings
+sass:
+    style: :compressed
+
+markdown: kramdown
+plugins:
+    - jekyll-redirect-from
